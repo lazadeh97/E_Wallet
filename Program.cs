@@ -1,43 +1,65 @@
 ﻿using E_Wallet;
 using System.Collections.Generic;
 
-Console.WriteLine("Zehmet olmasa Elektron kassa yaradin:");
+string userName = string.Empty;
+string password = string.Empty;
+int accountNumber = 0;
 
-  
+GetData getData = new GetData();
 AccountDetails details = new AccountDetails();
-details.details = new List<AccountDetails>();
-details.GetAccountData();
+//details.details = new List<AccountDetails>();
+getData.GetAccountData();
 
-if (details.response.Equals('b') || details.response.Equals('B'))
+if (getData.response.Equals('b') || getData.response.Equals('B'))
 {
     while (true)
     {
-        details.GetAccountDetails();
+        getData.GetAccountDetails();
+        Console.WriteLine(getData.accountId);
 
-        if (details.response.Equals('b') || details.response.Equals('B'))
+        if (getData.response.Equals('b') || getData.response.Equals('B'))
         {
-            details.GetAccountData();
-            details.isTrue = true;
+            getData.GetAccountData();
+            getData.isTrue = true;
         }
-        else { break; }
-    }
+        else 
+        {          
+            Console.WriteLine("Hesabiniza giris etmek isteyirsinizmi? b/B(beli), x/X(xeyir)");
+            details.response = char.Parse(Console.ReadLine());
 
-    foreach (var item in details.accounts.ToArray())
-    {
-        Console.WriteLine(item.accountId + " " + item.userName + " " + item.password);
-    }
-    foreach (var itemDetails in details.details.ToArray())
-    {
-        Console.WriteLine($"Hesab No: {itemDetails.accountNo}   " +
-                          $"Balans: {itemDetails.balance}    " +
-                          $"Pul Vahidi Balans : {itemDetails.currency}    " +
-                          $"Aciqlama:  {itemDetails.description}  " +
-                          $"Cari V:  {itemDetails.isActive}");
+            if (details.response.Equals('b') || details.response.Equals('B'))
+            {
+                AddAccountData();
+                getData.CheckAccountAuthorization(userName, password, accountNumber);
+            }
+            else
+            {
+                return;
+            }
+            getData.isTrue = false;
+        }
     }
 }
 else
 {
-    details.isTrue = false;
+    Console.WriteLine("Hesabiniza giris etmek isteyirsinizmi? b/B(beli), x/X(xeyir)");
+    details.response = char.Parse(Console.ReadLine());
+
+    if (details.response.Equals('b') || details.response.Equals('B'))
+    {
+        AddAccountData();
+        getData.CheckAccountAuthorization(userName, password, accountNumber);
+    }
+}
+
+void AddAccountData()
+{
+    Console.WriteLine("Giris ucun Istifadeci adinizi daxil edin:");
+    userName = Console.ReadLine();
+    Console.WriteLine("Giris ucun Sifrenizi daxil edin:");
+    password = Console.ReadLine();
+    Console.WriteLine("Giris ucun Hesab nomrenizi daxil edin:");
+    accountNumber = int.Parse(Console.ReadLine());
 }
 
 

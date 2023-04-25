@@ -20,22 +20,22 @@ namespace E_Wallet
             details = new List<AccountDetails>();
         }
 
-        public void GetAccountDetails()
-        {
-            Console.WriteLine("Hesab teyinati haqqinda aciqlama daxil edin:");
-            description = Console.ReadLine();
+        //public void GetAccountDetails()
+        //{
+        //    Console.WriteLine("Hesab teyinati haqqinda aciqlama daxil edin:");
+        //    description = Console.ReadLine();
 
-            Console.WriteLine("Pul vahidini daxil edin:");
-            currency = Console.ReadLine();
+        //    Console.WriteLine("Pul vahidini daxil edin:");
+        //    currency = Console.ReadLine();
 
-            Console.WriteLine("Balansi daxil edin:");
-            balance = double.Parse(Console.ReadLine());
+        //    Console.WriteLine("Balansi daxil edin:");
+        //    balance = double.Parse(Console.ReadLine());
 
-            details.Add(new AccountDetails() {accountNo = base.accountId, balance = balance, currency=currency, description = description, isActive=isActive});
+        //    details.Add(new AccountDetails() {accountNo = base.accountId, balance = balance, currency=currency, description = description, isActive=isActive});
 
-            Console.WriteLine("Hesabiniz ugurla yaradildi! Basqa hesabiniz varmi? b/B(Beli) ve ya x/X(xeyir)");
+        //    Console.WriteLine("Hesabiniz ugurla yaradildi! Basqa hesabiniz varmi? b/B(Beli) ve ya x/X(xeyir)");
 
-            response = char.Parse(Console.ReadLine());
-        }
+        //    response = char.Parse(Console.ReadLine());
+        //}
     }
 }

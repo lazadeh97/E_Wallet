@@ -25,18 +25,18 @@ namespace E_Wallet
         //    return accountId;
         //}
         //int accountID = new Random().Next(00000001, 99999999);
-        public void GetAccountData()
-        {
-            Console.WriteLine("Istifadeci adinizi daxil edin: ");
-            userName = Console.ReadLine();
-            Console.WriteLine("Sifrenizi daxil edin: ");
-            password = Console.ReadLine();
+        //public void GetAccountData()
+        //{
+        //    Console.WriteLine("Istifadeci adinizi daxil edin: ");
+        //    userName = Console.ReadLine();
+        //    Console.WriteLine("Sifrenizi daxil edin: ");
+        //    password = Console.ReadLine();
 
-            accountId = new Random().Next(00000001, 99999999);
-            accounts.Add(new Account() {accountId = accountId, userName = userName, password = password });
+        //    accountId = new Random().Next(00000001, 99999999);
+        //    accounts.Add(new Account() {accountId = accountId, userName = userName, password = password });
                   
-            Console.WriteLine("Elektron kassaniz ugurla yaradildi! Davam etmek isteyirsinizmi? b/B(Beli) ve ya x/X(xeyir)");
-            response = char.Parse(Console.ReadLine());
-        }
+        //    Console.WriteLine("Elektron kassaniz ugurla yaradildi! Davam etmek isteyirsinizmi? b/B(Beli) ve ya x/X(xeyir)");
+        //    response = char.Parse(Console.ReadLine());
+        //}
     }
 }

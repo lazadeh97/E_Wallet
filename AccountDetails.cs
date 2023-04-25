@@ -8,18 +8,17 @@ namespace E_Wallet
 {
     internal class AccountDetails : Account
     {
-        private int accountNo { get; set; }
-        public int AccountNo 
-        {
-            get { return accountNo; }
-            set { accountNo = base.AccountId; } 
-        }
+        public int accountNo { get; set; }
+        //public int AccountNo 
+        //{
+        //    get { return accountNo; }
+        //    set { accountNo = base.AccountId; } 
+        //}
         public double balance { get; set; }
         public string currency { get; set; }
         public string description { get; set; }
         public bool isActive { get; set; }
         public List<AccountDetails> details { get; set; }
-
 
         public AccountDetails()
         {
@@ -37,7 +36,7 @@ namespace E_Wallet
             Console.WriteLine("Balansi daxil edin:");
             balance = double.Parse(Console.ReadLine());
 
-            details.Add(new AccountDetails() {accountNo = base.AccountId, balance = balance, currency=currency, description = description, isActive=isActive});
+            details.Add(new AccountDetails() {accountNo = base.accountId, balance = balance, currency=currency, description = description, isActive=isActive});
 
             Console.WriteLine("Hesabiniz ugurla yaradildi! Basqa hesabiniz varmi? b/B(Beli) ve ya x/X(xeyir)");
 

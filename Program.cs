@@ -36,8 +36,8 @@ if (getData.response.Equals('b') || getData.response.Equals('B'))
             {
                 return;
             }
-            getData.isTrue = false;
         }
+        getData.isTrue = false;
     }
 }
 else

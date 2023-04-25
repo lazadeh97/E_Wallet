@@ -67,11 +67,8 @@ namespace E_Wallet
             this.Password = _password;
             this.AccountNumber = _accountNumber;
 
-            Console.WriteLine(details.FirstOrDefault(x => x.accountId == AccountNumber));
 
-
-
-            if (UserName.Equals(userName) && Password.Equals(password) && accountNo.Equals(details.FirstOrDefault(x => x.accountId == AccountNumber)));
+            if (UserName.Equals(userName) && Password.Equals(password) && accountId.Equals(details.First(x => x.accountNo == AccountNumber)))
             {
                 ShowAccountDetails();
             }

@@ -1,0 +1,15 @@
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.csproj.AssemblyReference.cache
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.AssemblyInfoInputs.cache
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.AssemblyInfo.cs
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.csproj.CoreCompileInputs.cache
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\bin\Debug\net6.0\E-Wallet.exe
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\bin\Debug\net6.0\E-Wallet.deps.json
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\bin\Debug\net6.0\E-Wallet.runtimeconfig.json
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\bin\Debug\net6.0\E-Wallet.dll
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\bin\Debug\net6.0\E-Wallet.pdb
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.dll
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\refint\E-Wallet.dll
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.pdb
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\E-Wallet.genruntimeconfig.cache
+C:\Users\leyla.agazade\Source\Repos\E_Wallet\obj\Debug\net6.0\ref\E-Wallet.dll

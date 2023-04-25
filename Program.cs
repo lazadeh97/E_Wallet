@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 Console.WriteLine("Zehmet olmasa Elektron kassa yaradin:");
 
-int accountID = new Random().Next(00000001, 99999999);    
+  
 AccountDetails details = new AccountDetails();
-
-details.CreateAccountId(accountID);
 details.details = new List<AccountDetails>();
 details.GetAccountData();
 

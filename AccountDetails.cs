@@ -9,11 +9,6 @@ namespace E_Wallet
     internal class AccountDetails : Account
     {
         public int accountNo { get; set; }
-        //public int AccountNo 
-        //{
-        //    get { return accountNo; }
-        //    set { accountNo = base.AccountId; } 
-        //}
         public double balance { get; set; }
         public string currency { get; set; }
         public string description { get; set; }

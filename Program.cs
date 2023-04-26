@@ -9,7 +9,6 @@ int accountNumber = 0;
 //Get instances
 Admin admin = new Admin();
 GetData getData = new GetData();
-Authorization authorization = new Authorization();
 AccountDetails details = new AccountDetails();
 
 //Use Sign Details 
@@ -66,7 +65,7 @@ void AskToLogin()
     if (details.response.Equals('b') || details.response.Equals('B'))
     {
         SignInToAccount();
-        authorization.CheckAccountAuthorization(userName, password, accountNumber);
+        getData.CheckAccountAuthorization(userName, password, accountNumber);
     }
     else
     {

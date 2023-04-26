@@ -8,14 +8,15 @@ int accountNumber = 0;
 GetData getData = new GetData();
 AccountDetails details = new AccountDetails();
 //details.details = new List<AccountDetails>();
+getData.isTrue = true;
 getData.GetAccountData();
 
 if (getData.response.Equals('b') || getData.response.Equals('B'))
 {
-    while (true)
+    while (getData.isTrue)
     {
         getData.GetAccountDetails();
-        Console.WriteLine(getData.accountId);
+        Console.WriteLine(getData.Id);
 
         if (getData.response.Equals('b') || getData.response.Equals('B'))
         {
@@ -36,8 +37,9 @@ if (getData.response.Equals('b') || getData.response.Equals('B'))
             {
                 return;
             }
+            getData.isTrue = false;
         }
-        getData.isTrue = false;
+
     }
 }
 else

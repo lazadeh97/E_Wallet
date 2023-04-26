@@ -6,9 +6,12 @@ string userName = string.Empty;
 string password = string.Empty;
 int accountNumber = 0;
 
+double money = 0;
+
 //Get instances
 Admin admin = new Admin();
 GetData getData = new GetData();
+Operations operations = new Operations();
 AccountDetails details = new AccountDetails();
 
 //Use Sign Details 
@@ -54,6 +57,16 @@ if (details.response.Equals('b') || details.response.Equals('B'))
 else
 {
     AskToLogin();
+}
+
+Console.WriteLine("Hesab uzerinde aparilacaq emeliyyati secin: \n 1. Hesaba pul yatirt \n 2. Hesabdan pul cek \n " +
+    "3. Hesab uzre prosesleri goster \n 4. Hesabi aktiv ve ya deaktiv edin \n 5. Esas menyuya geri don");
+operations.operationType = char.Parse(Console.ReadLine());
+if (operations.operationType.Equals("1"))
+{
+    money = double.Parse(Console.ReadLine());
+    getData.balance = operations.AddingOperation(money, getData.balance);
+    Console.WriteLine($"Cari balansiniz: {getData.balance}");
 }
 
 //Asking to Login

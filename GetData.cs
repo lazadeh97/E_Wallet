@@ -47,7 +47,7 @@ namespace E_Wallet
             Console.WriteLine("Balansi daxil edin:");
             balance = double.Parse(Console.ReadLine());
 
-            accountDetails.Add(new AccountDetails() { accountNo = base.Id, balance = balance, currency = currency, description = description, isActive = isActive });
+            accountDetails.Add(new AccountDetails() { accountNo = base.Id, balance = balance, currency = currency, description = description, currentStatus = currentStatus });
 
             Console.WriteLine("Hesabiniz ugurla yaradildi! Basqa hesabiniz varmi? b/B(Beli) ve ya x/X(xeyir)");
 
@@ -64,7 +64,7 @@ namespace E_Wallet
                              $"Balans: {itemDetails.balance}    " +
                              $"Pul Vahidi Balans: {itemDetails.currency}    " +
                              $"Aciqlama: {itemDetails.description}  " +
-                             $"Cari Veziyyet:  {itemDetails.isActive}");
+                             $"Cari Veziyyet:  {itemDetails.currentStatus}");
             }
         }
         public void ShowAccountDetails(int accountNumberForSearch)
@@ -75,7 +75,7 @@ namespace E_Wallet
                              $"Balans: {itemDetails.balance}    " +
                              $"Pul Vahidi Balans: {itemDetails.currency}    " +
                              $"Aciqlama: {itemDetails.description}  " +
-                             $"Cari Veziyyet:  {itemDetails.isActive}");
+                             $"Cari Veziyyet:  {itemDetails.currentStatus}");
             }
         }
         #endregion

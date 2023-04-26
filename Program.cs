@@ -28,7 +28,6 @@ if (getData.response.Equals('b') || getData.response.Equals('B'))
             AskToLogin();
             getData.isTrue = false;
         }
-
     }
 }
 else

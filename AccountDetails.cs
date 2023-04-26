@@ -12,6 +12,6 @@ namespace E_Wallet
         public double balance { get; set; }
         public string currency { get; set; }
         public string description { get; set; }
-        public bool isActive { get; set; }     
+        public string currentStatus { get; set; } = "Deaktiv";     
     }
 }

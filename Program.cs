@@ -11,7 +11,6 @@ GetData getData = new GetData();
 AccountDetails details = new AccountDetails();
 
 //Use Sign Details 
-getData.isTrue = true;
 getData.GetAccountData();
 
 if (getData.response.Equals('b') || getData.response.Equals('B'))
@@ -19,33 +18,26 @@ if (getData.response.Equals('b') || getData.response.Equals('B'))
     while (getData.isTrue)
     {
         getData.GetAccountDetails();
-        Console.WriteLine(getData.Id);
 
         if (getData.response.Equals('b') || getData.response.Equals('B'))
         {
             getData.GetAccountData();
-            getData.isTrue = true;
         }
         else 
-        {          
-            Console.WriteLine("Hesabiniza giris etmek isteyirsinizmi? b/B(beli), x/X(xeyir)");
-            details.response = char.Parse(Console.ReadLine());
-
-            if (details.response.Equals('b') || details.response.Equals('B'))
-            {
-                SignInToAccount();
-                getData.CheckAccountAuthorization(userName, password, accountNumber);
-            }
-            else
-            {
-                return;
-            }
+        {
+            AskToLogin();
             getData.isTrue = false;
         }
 
     }
 }
 else
+{
+    AskToLogin();
+}
+
+//Asking to Login
+void AskToLogin()
 {
     Console.WriteLine("Hesabiniza giris etmek isteyirsinizmi? b/B(beli), x/X(xeyir)");
     details.response = char.Parse(Console.ReadLine());
@@ -55,9 +47,13 @@ else
         SignInToAccount();
         getData.CheckAccountAuthorization(userName, password, accountNumber);
     }
+    else
+    {
+        return;
+    }
 }
 
-
+//Get Sign In data
 void SignInToAccount()
 {
     Console.WriteLine("Giris ucun Istifadeci adinizi daxil edin:");

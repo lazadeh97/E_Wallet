@@ -31,7 +31,9 @@ namespace E_Wallet
             Id = new Random().Next(00000001, 99999999);
             accounts.Add(new Account() { Id = Id, userName = userName, password = password });
 
-            Console.WriteLine("Elektron kassaniz ugurla yaradildi! Davam etmek isteyirsinizmi? b/B(Beli) ve ya x/X(xeyir)");
+
+
+            Console.WriteLine($"Elektron kassaniz ugurla yaradildi! Hesab nomreniz: {Id} \n Davam etmek isteyirsinizmi? b/B(Beli) ve ya x/X(xeyir)");
             response = char.Parse(Console.ReadLine());
         }
         public void GetAccountDetails()

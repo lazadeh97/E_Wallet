@@ -12,7 +12,7 @@ namespace E_Wallet
         public string userName { get; set; }
         public string password { get; set; }
         public char response { get; set; }
-        public bool isTrue { get; set; }
+        public bool isTrue { get; set; } = true;
         public List<AccountDetails> accountDetails { get; set; }
 
         public Account() 

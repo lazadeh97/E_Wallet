@@ -10,26 +10,33 @@ namespace E_Wallet
     internal class Operations 
     {
         public char operationType { get; set; }
+        public List<double> operations { get; set; }
+        public Operations() 
+        { 
+            operations = new List<double>();    
+        }
 
-        public double AddingOperation(double money, double balance) 
+        public double AddingOperation(double balance, double money) 
         {
             balance += money;
+            operations.Add(+money);
             return balance;
         }
 
-        public double GetMoneyFromBalance(double money, double balance) 
+        public double GetMoneyFromBalance(double balance, double money) 
         {
             if (balance < 0 || money > balance) { Console.WriteLine("Balansinizda kifayet qeder pul yoxdur!"); }
             else 
             {
                 balance -= money;
             }
+            operations.Add(-money);
             return balance;
         }
 
-        public void ChangeCurrentStatus(string currentStatus, bool isActive) 
+        public string ChangeCurrentStatus(string currentStatus) 
         {
-            if (isActive)
+            if (currentStatus.Equals("a")||currentStatus.Equals("A"))
             {
                 currentStatus = "Aktiv";
             }
@@ -37,6 +44,7 @@ namespace E_Wallet
             {
                 currentStatus = "Deaktiv";
             }
+            return currentStatus;
         }
     }
 }

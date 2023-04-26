@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace E_Wallet
 {
-    internal class GetData : AccountDetails
+    internal class DataControl : AccountDetails
     {
         public int accountSearchId { get; set; }
         public int accountDetailSearchId { get; set; }
         public List<Account> accounts { get; set; }
 
-        public GetData()
+        public DataControl()
         {
             accounts = new List<Account>();
             Console.WriteLine("Zehmet olmasa Elektron kassa yaradin:");
@@ -28,10 +28,11 @@ namespace E_Wallet
             Console.WriteLine("Sifrenizi daxil edin: ");
             password = Console.ReadLine();
 
+            //add random AccounNumber 
             Id = new Random().Next(00000001, 99999999);
+            // 
+
             accounts.Add(new Account() { Id = Id, userName = userName, password = password });
-
-
 
             Console.WriteLine($"Elektron kassaniz ugurla yaradildi! Hesab nomreniz: {Id} \n Davam etmek isteyirsinizmi? b/B(Beli) ve ya x/X(xeyir)");
             response = char.Parse(Console.ReadLine());
@@ -47,6 +48,9 @@ namespace E_Wallet
             Console.WriteLine("Balansi daxil edin:");
             balance = double.Parse(Console.ReadLine());
 
+            Console.WriteLine("Hesabin statusunu daxil edin (Aktiv/Deaktiv):");
+            currentStatus = Console.ReadLine();
+
             accountDetails.Add(new AccountDetails() { accountNo = base.Id, balance = balance, currency = currency, description = description, currentStatus = currentStatus });
 
             Console.WriteLine("Hesabiniz ugurla yaradildi! Basqa hesabiniz varmi? b/B(Beli) ve ya x/X(xeyir)");
@@ -58,14 +62,23 @@ namespace E_Wallet
         #region ShowingAccountDetails
         public void ShowAccountDetails()
         {
-            foreach (var itemDetails in accountDetails.ToArray())
+            if (accountDetails.Count>0)
             {
-                Console.WriteLine($"Hesab No: {itemDetails.accountNo}   " +
-                             $"Balans: {itemDetails.balance}    " +
-                             $"Pul Vahidi Balans: {itemDetails.currency}    " +
-                             $"Aciqlama: {itemDetails.description}  " +
-                             $"Cari Veziyyet:  {itemDetails.currentStatus}");
+                foreach (var itemDetails in accountDetails.ToArray())
+                {
+                    Console.WriteLine($"Hesab No: {itemDetails.accountNo}   " +
+                                 $"Balans: {itemDetails.balance}    " +
+                                 $"Pul Vahidi Balans: {itemDetails.currency}    " +
+                                 $"Aciqlama: {itemDetails.description}  " +
+                                 $"Cari Veziyyet:  {itemDetails.currentStatus}");
+                }
             }
+            else
+            {
+                Console.WriteLine("Sistemde her hansisa bir hesab movcud deyil!");
+                return;
+            }
+            
         }
         public void ShowAccountDetails(int accountNumberForSearch)
         {

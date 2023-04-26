@@ -83,12 +83,20 @@ namespace E_Wallet
         //Cheking Account Datas for Authorization
         public void CheckAccountAuthorization(string _userName, string _password, int _accountNumber)
         {
-            accountSearchId = accounts.Where(i => i.Id == _accountNumber).First().Id;
-            accountDetailSearchId = accountDetails.Where(x => x.accountNo == _accountNumber).First().accountNo;
-
-            if (accounts.Any(p => p.userName == _userName) && accounts.Any(l => l.password == _password) && accountSearchId == accountDetailSearchId)
+            if (accountDetails.Count>0)
             {
-                ShowAccountDetails(accountDetailSearchId);
+                accountSearchId = accounts.Where(i => i.Id == _accountNumber).First().Id;
+                accountDetailSearchId = accountDetails.Where(x => x.accountNo == _accountNumber).First().accountNo;
+
+                if (accounts.Any(p => p.userName == _userName) && accounts.Any(l => l.password == _password) && accountSearchId == accountDetailSearchId)
+                {
+                    ShowAccountDetails(accountDetailSearchId);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Sizin elektron kassaniz bosdur zehmet olmasa Hesab yaradin!");
+                GetAccountDetails();
             }
         }
     }

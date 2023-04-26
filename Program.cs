@@ -7,6 +7,7 @@ string password = string.Empty;
 int accountNumber = 0;
 
 //Get instances
+Admin admin = new Admin();
 GetData getData = new GetData();
 AccountDetails details = new AccountDetails();
 
@@ -28,6 +29,26 @@ if (getData.response.Equals('b') || getData.response.Equals('B'))
             AskToLogin();
             getData.isTrue = false;
         }
+    }
+}
+else
+{
+    AskToLogin();
+}
+
+//Watch All Accounts
+Console.WriteLine("Butun hesablara baxmaq isteyirsinizmi? b/B(beli), x/X(xeyir)");
+details.response = char.Parse(Console.ReadLine());
+if (details.response.Equals('b') || details.response.Equals('B'))
+{
+    Console.WriteLine("Admin istifadeci adinizi  daxil edin:");
+    userName = Console.ReadLine();
+    Console.WriteLine("Admin sifrenizi  daxil edin:");
+    password = Console.ReadLine();
+
+    if (userName.Equals(admin.UserName) && password.Equals(admin.PassWord))
+    {
+        getData.ShowAccountDetails();
     }
 }
 else

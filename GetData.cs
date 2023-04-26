@@ -78,12 +78,12 @@ namespace E_Wallet
             accountSearchId = accounts.Where(i => i.Id == _accountNumber).First().Id;
             accountDetailSearchId = accountDetails.Where(x => x.accountNo == _accountNumber).First().accountNo;
 
-            if (accounts.Any(p=>p.userName == _userName))
+            if (accounts.Any(p=>p.userName == _userName) && accounts.Any(l=>l.password == _password) && accountSearchId == accountDetailSearchId)
             {
-                if (accountSearchId == accountDetailSearchId)
-                {
+                //if (accountSearchId == accountDetailSearchId)
+                //{
                     ShowAccountDetails(accountDetailSearchId);
-                }
+                //}
             }
            
         }

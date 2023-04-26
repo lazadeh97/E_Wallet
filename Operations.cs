@@ -9,7 +9,6 @@ namespace E_Wallet
 {
     internal class Operations 
     {
-        public bool isDeactive { get; set; } = true;
         public char operationType { get; set; }
 
         public double AddingOperation(double money, double balance) 
@@ -28,9 +27,9 @@ namespace E_Wallet
             return balance;
         }
 
-        public void ChangeCurrentStatus(string currentStatus) 
+        public void ChangeCurrentStatus(string currentStatus, bool isActive) 
         {
-            if (isDeactive)
+            if (isActive)
             {
                 currentStatus = "Aktiv";
             }

@@ -20,6 +20,7 @@ namespace E_Wallet
             accounts = new List<Account>();
             Console.WriteLine("Zehmet olmasa Elektron kassa yaradin:");
         }
+        #region InPuts and Additions
         public void GetAccountData()
         {
             Console.WriteLine("Istifadeci adinizi daxil edin: ");
@@ -50,7 +51,9 @@ namespace E_Wallet
 
             response = char.Parse(Console.ReadLine());
         }
+        #endregion
 
+        #region ShowingAccountDetails
         public void ShowAccountDetails()
         {
             foreach (var itemDetails in accountDetails.ToArray())
@@ -73,19 +76,18 @@ namespace E_Wallet
                              $"Cari Veziyyet:  {itemDetails.isActive}");
             }
         }
+        #endregion
+
+        //Cheking Account Datas for Authorization
         public void CheckAccountAuthorization(string _userName, string _password, int _accountNumber)
         {
             accountSearchId = accounts.Where(i => i.Id == _accountNumber).First().Id;
             accountDetailSearchId = accountDetails.Where(x => x.accountNo == _accountNumber).First().accountNo;
 
-            if (accounts.Any(p=>p.userName == _userName) && accounts.Any(l=>l.password == _password) && accountSearchId == accountDetailSearchId)
+            if (accounts.Any(p => p.userName == _userName) && accounts.Any(l => l.password == _password) && accountSearchId == accountDetailSearchId)
             {
-                //if (accountSearchId == accountDetailSearchId)
-                //{
-                    ShowAccountDetails(accountDetailSearchId);
-                //}
+                ShowAccountDetails(accountDetailSearchId);
             }
-           
         }
     }
 }

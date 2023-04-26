@@ -1,13 +1,16 @@
 ﻿using E_Wallet;
 using System.Collections.Generic;
 
+//Use variables for login to E-Wallet
 string userName = string.Empty;
 string password = string.Empty;
 int accountNumber = 0;
 
+//Get instances
 GetData getData = new GetData();
 AccountDetails details = new AccountDetails();
-//details.details = new List<AccountDetails>();
+
+//Use Sign Details 
 getData.isTrue = true;
 getData.GetAccountData();
 
@@ -30,7 +33,7 @@ if (getData.response.Equals('b') || getData.response.Equals('B'))
 
             if (details.response.Equals('b') || details.response.Equals('B'))
             {
-                AddAccountData();
+                SignInToAccount();
                 getData.CheckAccountAuthorization(userName, password, accountNumber);
             }
             else
@@ -49,12 +52,13 @@ else
 
     if (details.response.Equals('b') || details.response.Equals('B'))
     {
-        AddAccountData();
+        SignInToAccount();
         getData.CheckAccountAuthorization(userName, password, accountNumber);
     }
 }
 
-void AddAccountData()
+
+void SignInToAccount()
 {
     Console.WriteLine("Giris ucun Istifadeci adinizi daxil edin:");
     userName = Console.ReadLine();

@@ -13,7 +13,6 @@ namespace E_Wallet
         public string password { get; set; }
         public char response { get; set; }
         public bool isTrue { get; set; }
-        //public List<Account> accounts { get; set; }
         public List<AccountDetails> accountDetails { get; set; }
 
         public Account() 

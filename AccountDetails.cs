@@ -12,12 +12,6 @@ namespace E_Wallet
         public double balance { get; set; }
         public string currency { get; set; }
         public string description { get; set; }
-        public bool isActive { get; set; }
-        //public List<AccountDetails> details { get; set; }
-
-        public AccountDetails()
-        {
-            //details = new List<AccountDetails>();
-        }        
+        public bool isActive { get; set; }     
     }
 }

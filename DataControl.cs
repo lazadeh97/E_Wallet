@@ -29,7 +29,7 @@ namespace E_Wallet
             password = Console.ReadLine();
 
             //add random AccounNumber 
-            Id = new Random().Next(00000001, 99999999);
+            Id = new Random().Next(10000000, 99999999);
             // 
 
             accounts.Add(new Account() { Id = Id, userName = userName, password = password });

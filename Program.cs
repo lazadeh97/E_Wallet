@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 
+#region Variables and Instances
 //Use variables for login to E-Wallet
 string userName = string.Empty;
 string password = string.Empty;
@@ -10,13 +11,14 @@ int accountNumber = 0;
 //auxiliary variables
 double money = 0;
 char signer = '\0';
-string currentStatus=string.Empty;
+string currentStatus = string.Empty;
 
 //Get instances
 Admin admin = new Admin();
 DataControl dataControl = new DataControl();
 Operations operations = new Operations();
 AccountDetails details = new AccountDetails();
+#endregion
 
 //Use Sign Details 
 dataControl.GetAccountData();
@@ -43,6 +45,7 @@ else
     AskToLogin();
 }
 
+#region SignerType Detecting
 void SignerType()
 {
     Console.WriteLine("Hesaba baxis ucun kimliyinizi tesdiq edin: \n 1. Musteri \n 2. Admin");
@@ -56,8 +59,9 @@ void SignerType()
         AdminLogin();
     }
 }
+#endregion
 
-//Watch All Accounts
+#region Signer Admin
 void AdminLogin()
 {
     Console.WriteLine("Butun hesablara baxmaq isteyirsinizmi? b/B(beli), x/X(xeyir)");
@@ -84,14 +88,15 @@ void AdminLogin()
     }
 
 }
+#endregion
 
-
+#region Operations
 void DoOperationViaAccount()
 {
     Console.WriteLine("Hesab uzerinde aparilacaq emeliyyati secin: \n 1. Hesaba pul yatirt \n 2. Hesabdan pul cek \n " +
     "3. Hesab uzre prosesleri goster \n 4. Hesabi aktiv ve ya deaktiv edin \n 5. Esas menyuya geri don \n");
 
-    Proses: Console.WriteLine("Emeliyyatin nomresi: ");
+Proses: Console.WriteLine("Emeliyyatin nomresi: ");
     operations.operationType = char.Parse(Console.ReadLine());
     switch (operations.operationType)
     {
@@ -127,8 +132,9 @@ void DoOperationViaAccount()
             break;
     }
 }
+#endregion
 
-//Asking to Login
+#region Customer Sign
 void AskToLogin()
 {
     Console.WriteLine("Hesabiniza giris etmek isteyirsinizmi? b/B(beli), x/X(xeyir)");
@@ -145,8 +151,9 @@ void AskToLogin()
         SignerType();
     }
 }
+#endregion
 
-//Get Sign In data
+#region SignIn Data
 void SignInToAccount()
 {
     Console.WriteLine("Giris ucun Istifadeci adinizi daxil edin:");
@@ -156,10 +163,4 @@ void SignInToAccount()
     Console.WriteLine("Giris ucun Hesab nomrenizi daxil edin:");
     accountNumber = int.Parse(Console.ReadLine());
 }
-
-
-
-
-
-
-
+#endregion

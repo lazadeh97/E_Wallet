@@ -25,7 +25,7 @@ namespace E_Wallet
 
         public double GetMoneyFromBalance(double balance, double money) 
         {
-            if (balance < 0 || money > balance) { Console.WriteLine("Balansinizda kifayet qeder pul yoxdur!"); }
+            if (balance == 0 || money > balance) { Console.WriteLine("Balansinizda kifayet qeder pul yoxdur!"); }
             else 
             {
                 balance -= money;

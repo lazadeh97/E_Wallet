@@ -82,18 +82,27 @@ namespace E_Wallet
         }
         public void ShowAccountDetails(int accountNumberForSearch)
         {
-            foreach (var itemDetails in accountDetails.Where(y => y.accountNo == accountNumberForSearch).ToList())
+            if (accountDetails.Count > 0)
             {
-                Console.WriteLine($"Hesab No: {itemDetails.accountNo}   " +
-                             $"Balans: {itemDetails.balance}    " +
-                             $"Pul Vahidi Balans: {itemDetails.currency}    " +
-                             $"Aciqlama: {itemDetails.description}  " +
-                             $"Cari Veziyyet:  {itemDetails.currentStatus}");
+                foreach (var itemDetails in accountDetails.Where(y => y.accountNo == accountNumberForSearch).ToList())
+                {
+                    Console.WriteLine($"Hesab No: {itemDetails.accountNo}   " +
+                                 $"Balans: {itemDetails.balance}    " +
+                                 $"Pul Vahidi Balans: {itemDetails.currency}    " +
+                                 $"Aciqlama: {itemDetails.description}  " +
+                                 $"Cari Veziyyet:  {itemDetails.currentStatus}");
+                }
             }
+            else
+            {
+                Console.WriteLine("Sistemde her hansisa bir hesab movcud deyil!");
+                return;
+            }
+            
         }
         #endregion
 
-        //Cheking Account Datas for Authorization
+        #region Cheking Account Datas for Authorization
         public void CheckAccountAuthorization(string _userName, string _password, int _accountNumber)
         {
             if (accounts.Count > 0)
@@ -106,6 +115,11 @@ namespace E_Wallet
                     if (accounts.Any(p => p.userName == _userName) && accounts.Any(l => l.password == _password) && accountSearchId == accountDetailSearchId)
                     {
                         ShowAccountDetails(accountDetailSearchId);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Daxil edilen melumatlar yanlisdir!");
+                        return;
                     }
                 }
                 else
@@ -120,5 +134,6 @@ namespace E_Wallet
                 return;
             }
         }
+        #endregion
     }
 }
